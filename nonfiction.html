@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Non-Fiction Books | Online Book Depot</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        })
+        .catch((err) => console.error("Failed to load header:", err));
+    </script>
+
+    <!-- Category Banner -->
+    <section class="category-banner">
+      <h2 class="page-title">Non-Fiction Books</h2>
+      <p>
+        Explore our top non-fiction picks filled with imagination and
+        storytelling.
+      </p>
+    </section>
+
+    <!-- Books Section -->
+    <section class="books">
+      <h2>Top Non-Fiction Reads</h2>
+      <div class="book-grid" id="bookList">
+        <!-- Book 1 -->
+        <div class="book-card">
+          <img
+            src="images/non-fiction1.jpg"
+            alt="The Anxious Generation:Rewiring of Causing an Epidemic of Mental Illness"
+          />
+          <h3>
+            The Anxious Generation:Rewiring of Causing an Epidemic of Mental
+            Illness
+          </h3>
+          <p class="author">Janathan Haidat</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳700</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="book-card">
+          <img
+            src="images/non-fiction2.jpg"
+            alt="Chaos: Charles Manson, the CIA, and the Secret History of the Sixties"
+          />
+          <h3>
+            Chaos: Charles Manson, the CIA, and the Secret History of the
+            Sixties
+          </h3>
+          <p class="author">Tom O'Nill</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳850</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="book-card">
+          <img src="images/non-fiction3.jpg" alt="Elon Musk" />
+          <h3>Elon Musk</h3>
+          <p class="author">Walter Isaacson</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳1010</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <!-- Book 4 -->
+        <div class="book-card">
+          <img
+            src="images/non-fiction4.jpg"
+            alt="A Life-Changing Tool That Millions of People Can't Stop Talking About"
+          />
+          <h3>
+            A Life-Changing Tool That Millions of People Can't Stop Talking
+            About
+          </h3>
+          <p class="author">Mell Robbins</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳930</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <!-- Book 5 -->
+        <div class="book-card">
+          <img
+            src="images/non-fiction5.jpg"
+            alt="The Hunt for the Most Meticulous Serial Killer of the 21st Century"
+          />
+          <h3>
+            The Hunt for the Most Meticulous Serial Killer of the 21st Century
+          </h3>
+          <p class="author">Maurren Callahan</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳810</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <!-- Book 6 -->
+        <div class="book-card">
+          <img
+            src="images/non-fiction6.jpg"
+            alt="An Easy & Proven Way to Build Good Habits & Break Bad Ones"
+          />
+          <h3>An Easy & Proven Way to Build Good Habits & Break Bad Ones</h3>
+          <p class="author">Games Clear</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳770</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <!-- Book 7 -->
+        <div class="book-card">
+          <img
+            src="images/non-fiction7.jpg"
+            alt="The Greatest Beer Run Ever: A Memoir of Friendship, Loyalty and War"
+          />
+          <h3>
+            The Greatest Beer Run Ever: A Memoir of Friendship, Loyalty and War
+          </h3>
+          <p class="author">J.T Molloy</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳770</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        })
+        .catch((err) => console.error("Failed to load footer:", err));
+    </script>
+
+    <script>
+      function filterBooks() {
+        const keyword = document
+          .getElementById("filterInput")
+          .value.toLowerCase();
+        const cards = document.querySelectorAll(".book-card");
+        let found = false;
+
+        cards.forEach((card) => {
+          const text = card.innerText.toLowerCase();
+          if (text.includes(keyword)) {
+            card.style.display = "block";
+            found = true;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        if (!found) {
+          document.getElementById("bookList").innerHTML =
+            "<p>No books found.</p>";
+        }
+      }
+    </script>
+  </body>
+</html>

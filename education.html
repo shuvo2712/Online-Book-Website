@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education Books | Online Book Depot</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        })
+        .catch((err) => console.error("Failed to load header:", err));
+    </script>
+
+    <!-- Category Banner -->
+    <section class="category-banner">
+      <h2 class="page-title">Education Books</h2>
+      <p>Find textbooks and learning resources to boost your knowledge.</p>
+    </section>
+
+    <!-- Books Section -->
+    <section class="books">
+      <h2>Top Education Books</h2>
+      <div class="book-grid" id="bookList">
+        <div class="book-card">
+          <img src="images/education1.jpg" alt="The Elements of Style" />
+          <h3>The Elements of Style</h3>
+          <p class="author">William Strunk Jr. & E.B. White</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳650</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <div class="book-card">
+          <img src="images/education2.jpg" alt="A Mind for Numbers" />
+          <h3>A Mind for Numbers</h3>
+          <p class="author">Barbara Oakley</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳700</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <div class="book-card">
+          <img src="images/education3.jpg" alt="How to Read a Book" />
+          <h3>How to Read a Book</h3>
+          <p class="author">Mortimer J. Adler</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳720</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <div class="book-card">
+          <img
+            src="images/education4.jpg"
+            alt="Make It Stick: The Science of Successful Learning"
+          />
+          <h3>Make It Stick: The Science of Successful Learning</h3>
+          <p class="author">Peter C. Brown</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳680</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <div class="book-card">
+          <img src="images/education5.jpg" alt="Thinking, Fast and Slow" />
+          <h3>Thinking, Fast and Slow</h3>
+          <p class="author">Daniel Kahneman</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳800</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <!-- New books added below -->
+
+        <div class="book-card">
+          <img
+            src="images/education6.jpg"
+            alt="Mindset: The New Psychology of Success"
+          />
+          <h3>Mindset: The New Psychology of Success</h3>
+          <p class="author">Carol S. Dweck</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳750</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <div class="book-card">
+          <img src="images/education7.jpg" alt="The Art of Learning" />
+          <h3>The Art of Learning</h3>
+          <p class="author">Josh Waitzkin</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳670</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+
+        <div class="book-card">
+          <img src="images/education8.jpg" alt="Teach Like a Champion" />
+          <h3>Teach Like a Champion</h3>
+          <p class="author">Doug Lemov</p>
+          <div class="stars">⭐ ⭐ ⭐ ⭐</div>
+          <div class="price">৳720</div>
+          <button class="add-cart">ADD TO CART</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        })
+        .catch((err) => console.error("Failed to load footer:", err));
+    </script>
+
+    <script>
+      function filterBooks() {
+        const keyword = document
+          .getElementById("filterInput")
+          .value.toLowerCase();
+        const cards = document.querySelectorAll(".book-card");
+        let found = false;
+
+        cards.forEach((card) => {
+          const text = card.innerText.toLowerCase();
+          if (text.includes(keyword)) {
+            card.style.display = "block";
+            found = true;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        if (!found) {
+          document.getElementById("bookList").innerHTML =
+            "<p>No books found.</p>";
+        }
+      }
+    </script>
+  </body>
+</html>

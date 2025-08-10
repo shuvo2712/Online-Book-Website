@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - Online Book Depot</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="cart-body">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <script>
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        })
+        .catch((err) => console.error("Failed to load header:", err));
+    </script>
+
+    <!-- Main Content -->
+    <main class="cart-container">
+      <section class="cart-items">
+        <h2>🛒 Your Cart</h2>
+
+        <div class="cart-item">
+          <input type="checkbox" checked />
+          <img src="images/book1.jpg" alt="Simpsons Forensic Medicine" />
+          <div class="item-details">
+            <h3>Simpsons Forensic Medicine (Special Indian Edition)</h3>
+            <p>John Manlove</p>
+            <div class="quantity-control">
+              <button>-</button>
+              <input type="text" value="1" />
+              <button>+</button>
+            </div>
+          </div>
+          <div class="item-price">
+            <p class="old-price">৳3363</p>
+            <p class="new-price">৳1700</p>
+          </div>
+          <button class="delete-btn">🗑️</button>
+        </div>
+
+        <div class="cart-item">
+          <input type="checkbox" />
+          <img src="images/tasbih.jpg" alt="500 Dana Redium Tasbih" />
+          <div class="item-details">
+            <h3>500 Dana Redium Tasbih</h3>
+            <p>Taqwa</p>
+            <p class="stock-warning">Only 9 copies available</p>
+            <div class="quantity-control">
+              <button>-</button>
+              <input type="text" value="1" />
+              <button>+</button>
+            </div>
+          </div>
+          <div class="item-price">
+            <p class="old-price">৳250</p>
+            <p class="new-price">৳125</p>
+          </div>
+          <button class="delete-btn">🗑️</button>
+        </div>
+      </section>
+
+      <aside class="checkout-summary">
+        <h3>Checkout Summary</h3>
+        <p>Subtotal: <strong>1700 TK</strong></p>
+        <p>Online Fee: <strong>50 TK</strong></p>
+        <p>Total: <strong>1750 TK</strong></p>
+        <hr />
+        <p><strong>Payable Total: 1750 TK</strong></p>
+        <div class="reward-box">🎁 You’ll earn 170 points</div>
+        <button class="gift-btn">🎁 Order as Gift</button>
+        <button class="checkout-btn">Proceed to Checkout →</button>
+        <p class="promo-note">
+          Apply <strong>Promo Code</strong> or <strong>Voucher</strong> on the
+          next page
+        </p>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        })
+        .catch((err) => console.error("Failed to load footer:", err));
+    </script>
+
+  </body>
+</html>
